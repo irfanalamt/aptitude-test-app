@@ -38,22 +38,11 @@ const Navbar = () => {
             href='/register'
             sx={{
               color: 'white',
-              marginLeft: '10px',
-              backgroundColor: '#00897A',
-            }}
-          >
-            Register
-          </Button>
-          <Button
-            variant='contained'
-            href='/about'
-            sx={{
-              color: 'white',
               marginX: '10px',
               backgroundColor: '#00897A',
             }}
           >
-            About
+            Register
           </Button>
         </div>
       </Toolbar>
