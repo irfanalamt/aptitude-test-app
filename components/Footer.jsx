@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 
 function Copyright() {
   return (
@@ -28,6 +28,9 @@ function Footer({ description, title }) {
         <Typography variant='subtitle2' align='center' gutterBottom>
           {title}
         </Typography>
+        <Button sx={{ color: 'black' }} size='medium' href='/about'>
+          About
+        </Button>
         <Typography
           variant='subtitle1'
           align='center'
