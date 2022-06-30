@@ -11,6 +11,7 @@ const Index = ({ data }) => {
         {data.map((user, i) => {
           return (
             <Typography
+              key={i}
               sx={{ margin: 1 }}
             >{`Name=${user.name}  Email=${user.email}`}</Typography>
           );
