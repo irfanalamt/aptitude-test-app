@@ -11,9 +11,9 @@ const About = () => {
           About
         </Typography>
         <Typography variant='body1' gutterBottom>
-          DAT are a set of tests designed to assess one's abilities in a variety
+          {`DAT are a set of tests designed to assess one's abilities in a variety
           of areas, including verbal reasoning, numerical reasoning, mechanical
-          reasoning, and spatial relations.
+          reasoning, and spatial relations.`}
         </Typography>
       </Paper>
     </Container>
