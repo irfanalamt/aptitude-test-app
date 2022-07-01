@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  Button,
   Container,
   FormControlLabel,
   FormLabel,
@@ -13,6 +14,8 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Head from 'next/head';
 const Register = () => {
   const [district, setDistrict] = useState('');
@@ -30,6 +33,10 @@ const Register = () => {
         <title>DAT registration</title>
       </Head>
       <Container sx={{ marginTop: 3 }}>
+        <Button href='/'>
+          <ArrowBackIcon />
+          <HomeIcon />
+        </Button>
         <Typography sx={{ marginY: 1 }} variant='h4' component='div'>
           DAT registration
         </Typography>
@@ -57,7 +64,7 @@ const Register = () => {
                     fullWidth
                   />
                 </Grid>
-                <Grid mt={1} item xs={5}>
+                <Grid mt={1} item md={5} xs={8}>
                   <TextField label='Date of birth' variant='outlined' />
                 </Grid>
                 <Grid mt={2} mx={2} sm={12} md={5} item>
@@ -82,7 +89,7 @@ const Register = () => {
                     />
                   </RadioGroup>
                 </Grid>
-                <Grid xs={8} sx={{ mt: 1 }} item>
+                <Grid xs={10} md={8} sx={{ mt: 1 }} item>
                   <TextField
                     label='Phone'
                     variant='outlined'
@@ -90,7 +97,7 @@ const Register = () => {
                   ></TextField>
                 </Grid>
                 <Grid container>
-                  <Grid xs={5} sx={{ mt: 1, mx: 1 }} item>
+                  <Grid md={5} xs={8} sx={{ mt: 1, mx: 1 }} item>
                     <InputLabel id='district-select-label'>District</InputLabel>
                     <Select
                       sx={{ minWidth: '20ch' }}
@@ -120,7 +127,7 @@ const Register = () => {
                       <MenuItem value={'Wayanad'}>Wayanad</MenuItem>
                     </Select>
                   </Grid>
-                  <Grid xs={4} mt={1} ml={1} item>
+                  <Grid md={5} xs={8} mt={1} ml={1} item>
                     <InputLabel id='grade-select-label'>Grade</InputLabel>
                     <Select
                       sx={{ minWidth: '20ch' }}
