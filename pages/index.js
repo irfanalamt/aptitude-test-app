@@ -1,36 +1,24 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
-const Index = ({ data }) => {
+const Index = () => {
+  const { data: session, status } = useSession();
   return (
     <>
       <Navbar />
-      <div>
-        {data.map((user, i) => {
-          return (
-            <Typography
-              key={i}
-              sx={{ margin: 1 }}
-            >{`Name=${user.name}  Email=${user.email} pass=${user.password}`}</Typography>
-          );
-        })}
-      </div>
+      <Box sx={{ marginY: 1 }}>
+        {session && (
+          <Typography variant='h6' component='div'>
+            Welcome {session.user.name}
+          </Typography>
+        )}
+      </Box>
       <Footer title='DAT 2.0' description='@irfanalamt' />
     </>
   );
 };
-
-export async function getServerSideProps() {
-  const res = await fetch(`${process.env.BASE_URL}/api/users`);
-  const data = await res.json();
-
-  return {
-    props: {
-      data,
-    },
-  };
-}
 
 export default Index;

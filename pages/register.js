@@ -111,7 +111,7 @@ const Register = () => {
                   ></TextField>
                 </Grid>
                 <Grid container>
-                  <Grid md={5} xs={8} sx={{ mt: 1, mx: 1 }} item>
+                  <Grid md={3} xs={8} sx={{ mt: 1, mx: 1 }} item>
                     <InputLabel id='district-select-label'>District</InputLabel>
                     <Select
                       sx={{ minWidth: '20ch' }}
@@ -141,7 +141,7 @@ const Register = () => {
                       <MenuItem value={'Wayanad'}>Wayanad</MenuItem>
                     </Select>
                   </Grid>
-                  <Grid md={5} xs={8} mt={1} ml={1} item>
+                  <Grid md={3} xs={8} mt={1} ml={1} item>
                     <InputLabel id='grade-select-label'>Grade</InputLabel>
                     <Select
                       sx={{ minWidth: '20ch' }}

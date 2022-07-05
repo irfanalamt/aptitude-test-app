@@ -104,6 +104,8 @@ export default function Login() {
                       message: 'Please enter valid email',
                     },
                   })}
+                  error={!!errors?.email}
+                  helperText={errors?.email ? errors.email.message : null}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -118,10 +120,12 @@ export default function Login() {
                   {...register('password', {
                     required: 'Please enter password',
                     minLength: {
-                      value: 2,
-                      message: 'password is more than 5 chars',
+                      value: 3,
+                      message: 'password length should be greater than 3',
                     },
                   })}
+                  error={!!errors?.password}
+                  helperText={errors?.password ? errors.password.message : null}
                 />
               </Grid>
             </Grid>
