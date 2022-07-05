@@ -13,7 +13,7 @@ const Index = ({ data }) => {
             <Typography
               key={i}
               sx={{ margin: 1 }}
-            >{`Name=${user.name}  Email=${user.email}`}</Typography>
+            >{`Name=${user.name}  Email=${user.email} pass=${user.password}`}</Typography>
           );
         })}
       </div>

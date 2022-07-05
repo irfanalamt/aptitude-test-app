@@ -6,7 +6,7 @@ const handler = nc();
 
 handler.get(async (req, res) => {
   await db.connect();
-  const users = await User.find({}, 'name email');
+  const users = await User.find({}, 'name email password');
   await db.disconnect();
   res.send(users);
 });

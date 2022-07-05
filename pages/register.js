@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  Box,
   Button,
   Container,
   FormControlLabel,
@@ -17,6 +18,8 @@ import {
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Head from 'next/head';
+import Image from 'next/image';
+
 const Register = () => {
   const [district, setDistrict] = useState('');
   const [grade, setGrade] = useState('');
@@ -33,20 +36,30 @@ const Register = () => {
         <title>DAT registration</title>
       </Head>
       <Container sx={{ marginTop: 3 }}>
+        <Image
+          style={{ opacity: '0.3', zIndex: -1 }}
+          src='/images/back-pattern.jpg'
+          alt=''
+          layout='fill'
+          objectFit='cover'
+          objectPosition='center'
+        />
         <Button href='/'>
           <ArrowBackIcon />
           <HomeIcon />
         </Button>
-        <Typography sx={{ marginY: 1 }} variant='h4' component='div'>
-          DAT registration
-        </Typography>
+        <Paper sx={{ maxWidth: 300, paddingX: 1 }}>
+          <Typography sx={{ marginY: 1 }} variant='h4' component='div'>
+            DAT registration
+          </Typography>
+        </Paper>
         <Grid sx={{ marginY: 2, marginX: 'auto' }} container>
           <Paper
             sx={{ paddingX: 3, paddingY: 5, minWidth: '50vw' }}
             elevation={2}
           >
             <form>
-              <Grid my={1} item>
+              <Grid md={7} sm={12} my={1} item>
                 <TextField
                   label='Name of student'
                   variant='outlined'
@@ -54,16 +67,17 @@ const Register = () => {
                 />
               </Grid>
               <Grid mt={1} container spacing={1}>
-                <Grid item sm={6} xs={12}>
+                <Grid item md={3} sm={6} xs={12}>
                   <TextField label='Email' variant='outlined' fullWidth />
                 </Grid>
-                <Grid item sm={6} xs={12}>
+                <Grid item md={3} sm={6} xs={12}>
                   <TextField
                     label='Confirm Email'
                     variant='outlined'
                     fullWidth
                   />
                 </Grid>
+                <Box width='100%' />
                 <Grid mt={1} item md={5} xs={8}>
                   <TextField label='Date of birth' variant='outlined' />
                 </Grid>
