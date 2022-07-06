@@ -28,6 +28,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+  const router = useRouter();
+  const { redirect } = router.query;
+
   const [district, setDistrict] = useState('');
   const [grade, setGrade] = useState('');
 
@@ -59,6 +62,7 @@ const Register = () => {
           draggable: true,
           progress: undefined,
         });
+        router.push('/');
       })
       .catch(function (error) {
         toast.error('POST error!', {
