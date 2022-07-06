@@ -122,9 +122,10 @@ const Register = () => {
                   helperText={errors?.name ? errors.name.message : null}
                 />
               </Grid>
-              <Grid mt={1} container spacing={1}>
+              <Grid container spacing={1}>
                 <Grid item md={5} sm={6} xs={12}>
                   <TextField
+                    sx={{ marginTop: 1 }}
                     label='Email'
                     name='email'
                     variant='outlined'
@@ -143,6 +144,7 @@ const Register = () => {
                 </Grid>
                 <Grid item md={5} sm={6} xs={12}>
                   <TextField
+                    sx={{ marginTop: 1 }}
                     label='Confirm Email'
                     name='confirmemail'
                     variant='outlined'
@@ -167,6 +169,7 @@ const Register = () => {
               </Grid>
               <Grid mt={1} item md={5} xs={8}>
                 <TextField
+                  sx={{ marginTop: 1 }}
                   label='Date of birth'
                   name='dob'
                   variant='outlined'
@@ -213,6 +216,7 @@ const Register = () => {
               </Grid>
               <Grid xs={10} md={8} sx={{ mt: 1 }} item>
                 <TextField
+                  sx={{ marginTop: 1 }}
                   label='Phone'
                   variant='outlined'
                   {...register('phone', {
