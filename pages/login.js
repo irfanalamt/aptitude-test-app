@@ -96,7 +96,6 @@ export default function Login() {
                   id='email'
                   label='Email Address'
                   name='email'
-                  autoComplete='email'
                   {...register('email', {
                     required: 'Please enter email',
                     pattern: {
@@ -106,6 +105,7 @@ export default function Login() {
                   })}
                   error={!!errors?.email}
                   helperText={errors?.email ? errors.email.message : null}
+                  autoFocus
                 />
               </Grid>
               <Grid item xs={12}>
@@ -116,7 +116,6 @@ export default function Login() {
                   label='Password'
                   type='password'
                   id='password'
-                  autoComplete='new-password'
                   {...register('password', {
                     required: 'Please enter password',
                     minLength: {
