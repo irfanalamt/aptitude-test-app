@@ -62,7 +62,9 @@ const Register = () => {
           draggable: true,
           progress: undefined,
         });
-        router.push('/');
+        setTimeout(() => {
+          router.push('/');
+        }, 3500);
       })
       .catch(function (error) {
         toast.error('POST error!', {
