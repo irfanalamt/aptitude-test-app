@@ -19,9 +19,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -29,7 +29,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const router = useRouter();
-  const { redirect } = router.query;
 
   const [district, setDistrict] = useState('');
   const [grade, setGrade] = useState('');
@@ -53,7 +52,8 @@ const Register = () => {
         grade,
       })
       .then(function (response) {
-        toast.success('Register success!', {
+        console.log({ ...response });
+        toast.success(`Register success!🎉`, {
           position: 'top-center',
           autoClose: 3000,
           hideProgressBar: false,
@@ -67,7 +67,7 @@ const Register = () => {
         }, 3500);
       })
       .catch(function (error) {
-        toast.error('POST error!', {
+        toast.error(`${error}`, {
           position: 'top-center',
           autoClose: 3000,
           hideProgressBar: false,
@@ -77,6 +77,37 @@ const Register = () => {
           progress: undefined,
         });
       });
+  };
+
+  const signinHandler = async (email, password) => {
+    try {
+      const result = await signIn('credentials', {
+        redirect: false,
+        email,
+        password,
+      });
+      if (result.error) {
+        toast.error(`${result.error}`, {
+          position: 'top-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } catch (err) {
+      toast.error(`${getError(err)}`, {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
   return (
     <>
@@ -196,27 +227,24 @@ const Register = () => {
                 <FormLabel id='demo-row-radio-buttons-group-label'>
                   Gender
                 </FormLabel>
-                <RadioGroup
-                  row
-                  name='gender-radio-buttons-group'
-                  {...register('gender', {
-                    required: 'Please enter gender',
-                  })}
-                >
+                <RadioGroup row name='gender-radio-buttons-group'>
                   <FormControlLabel
                     value='female'
                     control={<Radio />}
                     label='Female'
+                    {...register('gender')}
                   />
                   <FormControlLabel
                     value='male'
                     control={<Radio />}
                     label='Male'
+                    {...register('gender')}
                   />
                   <FormControlLabel
                     value='other'
                     control={<Radio />}
                     label='Other'
+                    {...register('gender')}
                   />
                 </RadioGroup>
               </Grid>

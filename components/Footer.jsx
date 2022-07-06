@@ -17,10 +17,11 @@ function Footer({ description, title }) {
       component='footer'
       sx={{
         bgcolor: 'background.paper',
+        mt: 4,
         py: 6,
         width: '100%',
         textAlign: 'center',
-        position: 'absolute',
+        position: 'relative',
         bottom: 0,
       }}
     >
