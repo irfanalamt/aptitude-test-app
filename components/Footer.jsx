@@ -16,16 +16,17 @@ function Footer({ description, title }) {
     <Box
       component='footer'
       sx={{
-        bgcolor: 'background.paper',
         mt: 4,
         py: 6,
         width: '100%',
         textAlign: 'center',
         position: 'relative',
         bottom: 0,
+        maxWidth: '50vw',
+        marginX: 'auto',
       }}
     >
-      <Container maxWidth='lg'>
+      <Container maxWidth='xs'>
         <Typography variant='subtitle2' align='center' gutterBottom>
           {title}
         </Typography>

@@ -27,11 +27,24 @@ const QuizCard = (props) => {
     <Box sx={{ minWidth: 275, marginY: 2, boxShadow: 2 }}>
       <Card variant='outlined'>
         <CardContent>
-          <Typography variant='h5' component='div'>
+          <Typography
+            sx={{
+              boxShadow: 1,
+              maxWidth: 150,
+              textAlign: 'center',
+              borderRadius: 2,
+              fontSize: '1.1rem',
+            }}
+            variant='h5'
+            component='div'
+          >
             Question {questionNumber}
           </Typography>
 
-          <Typography variant='body1' sx={{ mb: 1.5 }}>
+          <Typography
+            variant='body1'
+            sx={{ marginY: 1.5, fontWeight: 410, fontSize: '1.2rem' }}
+          >
             {question.title}
           </Typography>
 

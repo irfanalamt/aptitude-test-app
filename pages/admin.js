@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -43,6 +44,14 @@ const Admin = () => {
   console.log(data);
   return (
     <Container maxWidth='md'>
+      <Image
+        style={{ opacity: '0.4', zIndex: -1 }}
+        src='/images/back-yellow.jpg'
+        alt=''
+        layout='fill'
+        objectFit='cover'
+        objectPosition='center'
+      />
       <Button sx={{ marginTop: 3 }} variant='contained' href='/'>
         <ArrowBackIcon />
         <HomeIcon />

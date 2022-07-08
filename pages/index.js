@@ -15,14 +15,31 @@ import { useSession } from 'next-auth/react';
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import CreditScoreIcon from '@mui/icons-material/CreditScore';
 import { scoreContext } from '../utils/Context';
+import Image from 'next/image';
 
 const Index = () => {
   const { data: session, status } = useSession();
   const { finalScore } = useContext(scoreContext);
   return (
     <>
+      <Image
+        style={{ opacity: '0.8', zIndex: -1 }}
+        src='/images/back-light.jpg'
+        alt=''
+        layout='fill'
+        objectFit='cover'
+        objectPosition='center'
+      />
       <Navbar />
-      <Box sx={{ marginY: 1 }}>
+      <Box
+        sx={{
+          marginY: 2,
+          boxShadow: 2,
+          marginX: 4,
+          padding: 1,
+          borderRadius: 2,
+        }}
+      >
         {session && (
           <Container maxWidth='md'>
             <Typography sx={{ margin: 2 }} variant='h6' component='div'>
