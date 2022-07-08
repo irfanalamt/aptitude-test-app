@@ -8,6 +8,7 @@ import axios from 'axios';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import PublishIcon from '@mui/icons-material/Publish';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import LabelIcon from '@mui/icons-material/Label';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { scoreContext } from '../utils/Context';
@@ -133,7 +134,7 @@ const Quiz = () => {
               textAlign: 'center',
               marginTop: 1,
               paddingY: 2,
-              backgroundColor: '#eceff1',
+              backgroundColor: '#e0f7fa',
             }}
           >
             <Typography variant='h5'>
@@ -171,7 +172,8 @@ const Quiz = () => {
                     variant='subtitle1'
                     key={i}
                   >
-                    {element}🌫️
+                    {element}
+                    <LabelIcon sx={{ color: '#37474f' }} />
                   </Typography>
                 );
               })}
