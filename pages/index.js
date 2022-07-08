@@ -47,6 +47,9 @@ const Index = () => {
                   borderRadius: 2,
                   maxWidth: 300,
                   backgroundColor: '#f9fbe7',
+                  textAlign: 'center',
+                  marginX: 'auto',
+                  marginTop: 1,
                 }}
                 elevation={3}
                 square
