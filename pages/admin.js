@@ -69,7 +69,7 @@ const Admin = () => {
                     key={i}
                     variant='h6'
                   >
-                    {`ID=${el.email}`}
+                    {`${el.email}`}
                   </Typography>
                   <Box
                     sx={{
