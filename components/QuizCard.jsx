@@ -24,7 +24,7 @@ const QuizCard = (props) => {
   };
 
   return (
-    <Box sx={{ minWidth: 275, marginY: 2 }}>
+    <Box sx={{ minWidth: 275, marginY: 2, boxShadow: 2 }}>
       <Card variant='outlined'>
         <CardContent>
           <Typography variant='h5' component='div'>

@@ -86,4 +86,22 @@ export const questions = [
     ],
     correctAnswer: 2,
   },
+  {
+    title: `What is the most abundant element in the universe?`,
+    options: [
+      {
+        description: 'Helium',
+      },
+      {
+        description: 'Carbon',
+      },
+      {
+        description: 'Hydrogen',
+      },
+      {
+        description: 'Oxygen',
+      },
+    ],
+    correctAnswer: 3,
+  },
 ];

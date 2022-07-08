@@ -1,9 +1,10 @@
-import * as React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import { SessionProvider } from 'next-auth/react';
+import { scoreContext } from '../utils/Context';
 
 import createEmotionCache from '../src/createEmotionCache.js';
 
@@ -11,6 +12,7 @@ import createEmotionCache from '../src/createEmotionCache.js';
 const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp(props) {
+  const [finalScore, setFinalScore] = useState(null);
   const {
     Component,
     emotionCache = clientSideEmotionCache,
@@ -24,9 +26,11 @@ export default function MyApp(props) {
       </Head>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
-      <SessionProvider session={session}>
-        <Component {...pageProps} />
-      </SessionProvider>
+      <scoreContext.Provider value={{ finalScore, setFinalScore }}>
+        <SessionProvider session={session}>
+          <Component {...pageProps} />
+        </SessionProvider>
+      </scoreContext.Provider>
     </CacheProvider>
   );
 }

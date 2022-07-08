@@ -1,15 +1,20 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { Box, Button, Chip, Container, Typography } from '@mui/material';
+import { Box, Button, Chip, Container, Paper, Typography } from '@mui/material';
 import QuizCard from '../components/QuizCard';
 import { questions } from '../utils/sampleData';
 import axios from 'axios';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import PublishIcon from '@mui/icons-material/Publish';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { scoreContext } from '../utils/Context';
+import Image from 'next/image';
 
 const Quiz = () => {
+  const { setFinalScore } = useContext(scoreContext);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   const finishedQuiz = currentQuestionIndex === questions.length;
@@ -54,15 +59,33 @@ const Quiz = () => {
       })
       .then(function (response) {
         console.log(response);
-        toast.success(`Answers submitted. SCORE=${response.data.marksScored}`, {
-          position: 'bottom-center',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        setFinalScore(response.data.marksScored);
+        toast.success(
+          `Answers submitted. SCORE=${response.data.marksScored} `,
+          {
+            position: 'bottom-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+        setTimeout(() => {
+          toast.info(`Redirecting to HOME..`, {
+            position: 'bottom-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }, 2500);
+        setTimeout(() => {
+          router.push('/');
+        }, 5000);
       })
       .catch(function (error) {
         toast.error(`Already submitted!`, {
@@ -79,9 +102,17 @@ const Quiz = () => {
 
   return (
     <Box>
+      <Image
+        style={{ opacity: '0.4', zIndex: -1 }}
+        src='/images/back-yellow.jpg'
+        alt=''
+        layout='fill'
+        objectFit='cover'
+        objectPosition='center'
+      />
       <Chip
         sx={{ margin: 2, fontSize: '1rem' }}
-        label={`${session.user.name}🟢`}
+        label={`${session.user.name} 🟢`}
       />
 
       <Container maxWidth='sm'>
@@ -97,11 +128,29 @@ const Quiz = () => {
           TEST 1
         </Typography>
         {finishedQuiz ? (
-          <Box sx={{ textAlign: 'center', marginTop: 1 }}>
-            <Typography variant='h5'> QUIZ DONE ✅</Typography>
+          <Paper
+            sx={{
+              textAlign: 'center',
+              marginTop: 1,
+              paddingY: 2,
+              backgroundColor: '#eceff1',
+            }}
+          >
+            <Typography variant='h5'>
+              QUIZ COMPLETED
+              <AssignmentTurnedInIcon
+                sx={{
+                  fontSize: '1rem',
+                  marginTop: 2,
+                  marginLeft: 1,
+                  color: 'green',
+                }}
+              />
+            </Typography>
+
             <Button
-              sx={{ marginY: 1 }}
-              variant='contained'
+              sx={{ marginY: 1, marginTop: 1 }}
+              variant='outlined'
               onClick={() => restartQuiz()}
             >
               Restart
@@ -127,12 +176,13 @@ const Quiz = () => {
             <Button
               onClick={() => submitAnswersToDB()}
               variant='contained'
-              sx={{ marginX: 'auto' }}
+              sx={{ marginX: 'auto', marginTop: 2 }}
               color='secondary'
             >
               Submit answers
+              <PublishIcon sx={{ marginLeft: 1 }} />
             </Button>
-          </Box>
+          </Paper>
         ) : (
           <QuizCard
             question={currentQuestion}
