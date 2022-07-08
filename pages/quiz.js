@@ -117,6 +117,7 @@ const Quiz = () => {
                   <Typography
                     sx={{ paddingX: 1, marginX: 1, fontWeight: 'bold' }}
                     variant='subtitle1'
+                    key={i}
                   >
                     {element}🌫️
                   </Typography>
