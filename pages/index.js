@@ -194,13 +194,16 @@ const Index = () => {
                 <CardContent>
                   <Typography
                     sx={{ fontSize: '1rem' }}
-                    sx={{ marginY: 1 }}
                     variant='h6'
                     component='div'
                   >
                     Perpetual Speed and Accuracy (PSA)
                   </Typography>
-                  <Typography variant='body1' component='div'>
+                  <Typography
+                    sx={{ marginY: 1 }}
+                    variant='body1'
+                    component='div'
+                  >
                     This exam assesses your ability to focus attention and
                     quickly process information using word/image pairs as well
                     as simple mathematical equations.
