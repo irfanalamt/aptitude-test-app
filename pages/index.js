@@ -97,9 +97,7 @@ const Index = () => {
                   <Typography variant='body1' component='div'>
                     This exam assesses your ability to solve real-world problems
                     by using, interpreting, and communicating mathematical
-                    information. These include the ability to understand basic
-                    math like addition, subtraction, division and
-                    multiplication.
+                    information.
                   </Typography>
                 </CardContent>
               </Card>
@@ -119,9 +117,7 @@ const Index = () => {
                   </Typography>
                   <Typography variant='body1' component='div'>
                     This exam assesses your capacity to logically respond to a
-                    verbally presented question. The student studies the
-                    information or problem provided, processes it, develops a
-                    theory, and assesses the solution to the problem.
+                    verbally presented question.
                   </Typography>
                 </CardContent>
               </Card>
@@ -143,9 +139,7 @@ const Index = () => {
                     This exam assesses your capacity for understanding and
                     reasoning about complicated ideas that, despite being true,
                     are unrelated to specific events, things, people, or
-                    circumstances. Thinking about concepts that are frequently
-                    symbolic or speculative is required for this style of
-                    reasoning.
+                    circumstances.
                   </Typography>
                 </CardContent>
               </Card>
@@ -164,9 +158,8 @@ const Index = () => {
                     Mechanical Reasoning (MR)
                   </Typography>
                   <Typography variant='body1' component='div'>
-                    This exam assesses your mechanical and technical knowledge.
-                    The test requires the application of mechanical principles
-                    and concepts in order to solve problems.
+                    This exam assesses your mechanical and technical knowledge
+                    and their applications.
                   </Typography>
                 </CardContent>
               </Card>
@@ -186,9 +179,8 @@ const Index = () => {
                   </Typography>
                   <Typography variant='body1' component='div'>
                     This exam assesses your ability to focus attention and
-                    quickly process information. This test includes word/image
-                    pairs as well as simple mathematical equations or number
-                    sequences.
+                    quickly process information using word/image pairs as well
+                    as simple mathematical equations.
                   </Typography>
                 </CardContent>
               </Card>
@@ -209,9 +201,7 @@ const Index = () => {
                   <Typography variant='body1' component='div'>
                     This exam assesses your ability to think about objects in
                     two and three dimensions, visualise their movement, and
-                    deduce patterns between them. This ability, also known as
-                    spatial awareness, frequently focuses on image rotation or
-                    image sequences.
+                    deduce patterns between them.
                   </Typography>
                 </CardContent>
               </Card>
