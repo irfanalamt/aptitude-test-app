@@ -93,6 +93,7 @@ const Admin = () => {
                       }}
                       fontSize='1.2rem'
                       variant='body1'
+                      key={i}
                     >
                       {`${el.score} `}
                     </Typography>
