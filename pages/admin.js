@@ -67,7 +67,7 @@ const Admin = () => {
                   <Typography
                     sx={{ marginX: 1, alignSelf: 'flex-end' }}
                     key={i}
-                    variant='h6'
+                    variant='subtitle1'
                   >
                     {`${el.email}`}
                   </Typography>
