@@ -94,7 +94,11 @@ const Index = () => {
                   <Typography sx={{ marginY: 1 }} variant='h6' component='div'>
                     Numerical Ability (NA)
                   </Typography>
-                  <Typography variant='body1' component='div'>
+                  <Typography
+                    sx={{ fontSize: '1rem' }}
+                    variant='body1'
+                    component='div'
+                  >
                     This exam assesses your ability to solve real-world problems
                     by using, interpreting, and communicating mathematical
                     information.
@@ -115,9 +119,15 @@ const Index = () => {
                   <Typography sx={{ marginY: 1 }} variant='h6' component='div'>
                     Verbal Reasoning (VR)
                   </Typography>
-                  <Typography variant='body1' component='div'>
+                  <Typography
+                    sx={{ fontSize: '1rem' }}
+                    variant='body1'
+                    component='div'
+                  >
                     This exam assesses your capacity to logically respond to a
-                    verbally presented question.
+                    verbally presented question. This also includes how you
+                    understand, reason, and engage with written and verbal
+                    language.
                   </Typography>
                 </CardContent>
               </Card>
@@ -135,7 +145,11 @@ const Index = () => {
                   <Typography sx={{ marginY: 1 }} variant='h6' component='div'>
                     Abstract Reasoning (AR)
                   </Typography>
-                  <Typography variant='body1' component='div'>
+                  <Typography
+                    sx={{ fontSize: '1rem' }}
+                    variant='body1'
+                    component='div'
+                  >
                     This exam assesses your capacity for understanding and
                     reasoning about complicated ideas that, despite being true,
                     are unrelated to specific events, things, people, or
@@ -157,7 +171,11 @@ const Index = () => {
                   <Typography sx={{ marginY: 1 }} variant='h6' component='div'>
                     Mechanical Reasoning (MR)
                   </Typography>
-                  <Typography variant='body1' component='div'>
+                  <Typography
+                    sx={{ fontSize: '1rem' }}
+                    variant='body1'
+                    component='div'
+                  >
                     This exam assesses your mechanical and technical knowledge
                     and their applications.
                   </Typography>
@@ -174,7 +192,12 @@ const Index = () => {
                 }}
               >
                 <CardContent>
-                  <Typography sx={{ marginY: 1 }} variant='h6' component='div'>
+                  <Typography
+                    sx={{ fontSize: '1rem' }}
+                    sx={{ marginY: 1 }}
+                    variant='h6'
+                    component='div'
+                  >
                     Perpetual Speed and Accuracy (PSA)
                   </Typography>
                   <Typography variant='body1' component='div'>
@@ -198,7 +221,11 @@ const Index = () => {
                   <Typography sx={{ marginY: 1 }} variant='h6' component='div'>
                     Spacial Relations (SR)
                   </Typography>
-                  <Typography variant='body1' component='div'>
+                  <Typography
+                    sx={{ fontSize: '1rem' }}
+                    variant='body1'
+                    component='div'
+                  >
                     This exam assesses your ability to think about objects in
                     two and three dimensions, visualise their movement, and
                     deduce patterns between them.
