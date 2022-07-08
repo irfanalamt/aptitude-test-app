@@ -6,6 +6,7 @@ async function handler(req, res) {
   if (req.method !== 'POST') {
     return;
   }
+
   const { email, answers } = req.body;
   const marksScored = questions.filter((q, i) => {
     return q.correctAnswer === parseInt(answers[i]);

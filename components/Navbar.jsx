@@ -2,6 +2,7 @@ import { Typography, AppBar, Toolbar, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { color } from '@mui/system';
 
 const LogoLg = styled(Typography)(({ theme }) => ({
   display: 'none',
@@ -30,45 +31,57 @@ const Navbar = () => {
         <LogoSm color='black' variant='h6'>
           DAT
         </LogoSm>
-        {!session && (
-          <div style={{ alignItems: 'center' }}>
+        <div style={{ alignItems: 'center' }}>
+          {!session && (
+            <>
+              <Button
+                variant='contained'
+                href='/login'
+                sx={{
+                  color: 'white',
+                  backgroundColor: '#00897A',
+                }}
+              >
+                Login
+              </Button>
+              <Button
+                variant='contained'
+                href='/register'
+                sx={{
+                  color: 'white',
+                  marginX: '10px',
+                  backgroundColor: '#00897A',
+                }}
+              >
+                Register
+              </Button>
+            </>
+          )}
+          {session?.user.isAdmin && (
             <Button
+              href='/admin'
+              sx={{ backgroundColor: '#f44336' }}
+              color='secondary'
               variant='contained'
-              href='/login'
-              sx={{
-                color: 'white',
-                backgroundColor: '#00897A',
-              }}
             >
-              Login
+              ADMIN PANEL
             </Button>
-            <Button
-              variant='contained'
-              href='/register'
-              sx={{
-                color: 'white',
-                marginX: '10px',
-                backgroundColor: '#00897A',
-              }}
-            >
-              Register
-            </Button>
-          </div>
-        )}
+          )}
 
-        {session && (
-          <Button
-            variant='contained'
-            onClick={handleSignout}
-            sx={{
-              color: 'white',
-              marginX: '10px',
-              backgroundColor: '#00897A',
-            }}
-          >
-            <LogoutIcon sx={{ marginX: 1 }} /> Sign Out
-          </Button>
-        )}
+          {session && (
+            <Button
+              variant='contained'
+              onClick={handleSignout}
+              sx={{
+                color: 'white',
+                backgroundColor: '#00897A',
+                marginX: 1,
+              }}
+            >
+              <LogoutIcon sx={{ marginX: 1 }} /> Sign Out
+            </Button>
+          )}
+        </div>
       </Toolbar>
     </AppBar>
   );

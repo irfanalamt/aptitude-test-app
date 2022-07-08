@@ -54,7 +54,7 @@ const Quiz = () => {
 
   const submitAnswersToDB = () => {
     axios
-      .post('/api/score', {
+      .post('/api/scorePost', {
         email: session.user.email,
         answers,
       })
