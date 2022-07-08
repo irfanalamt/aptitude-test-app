@@ -123,7 +123,7 @@ const Register = () => {
           objectFit='cover'
           objectPosition='center'
         />
-        <Button href='/'>
+        <Button variant='contained' href='/'>
           <ArrowBackIcon />
           <HomeIcon />
         </Button>
@@ -340,7 +340,17 @@ const Register = () => {
             </Box>
           </Paper>
         </Grid>
-        <ToastContainer />
+        <ToastContainer
+          position='top-center'
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </Container>
     </>
   );

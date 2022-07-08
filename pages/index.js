@@ -1,4 +1,11 @@
-import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+} from '@mui/material';
 import * as React from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -11,9 +18,14 @@ const Index = () => {
       <Navbar />
       <Box sx={{ marginY: 1 }}>
         {session && (
-          <Typography variant='h6' component='div'>
-            Welcome {session.user.name}
-          </Typography>
+          <>
+            <Typography sx={{ margin: 2 }} variant='h6' component='div'>
+              Welcome {session.user.name}
+            </Typography>
+            <Button href='/quiz' sx={{ margin: 2 }} variant='contained'>
+              Start Quiz
+            </Button>
+          </>
         )}
         {!session && (
           <Grid
@@ -105,7 +117,7 @@ const Index = () => {
               >
                 <CardContent>
                   <Typography sx={{ marginY: 1 }} variant='h6' component='div'>
-                    Mechanical Reasoning (AR)
+                    Mechanical Reasoning (MR)
                   </Typography>
                   <Typography variant='body1' component='div'>
                     This exam assesses your mechanical and technical knowledge.

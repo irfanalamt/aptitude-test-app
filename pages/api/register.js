@@ -28,6 +28,7 @@ async function handler(req, res) {
 
   const student = await newStudent.save();
   const user = await newUser.save();
+
   await db.disconnect();
 
   console.log(req.body);
