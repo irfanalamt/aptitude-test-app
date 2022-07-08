@@ -24,8 +24,14 @@ const QuizCard = (props) => {
   };
 
   return (
-    <Box sx={{ minWidth: 275, marginY: 2, boxShadow: 2 }}>
-      <Card variant='outlined'>
+    <Box
+      sx={{
+        minWidth: 275,
+        marginY: 2,
+        boxShadow: 2,
+      }}
+    >
+      <Card sx={{ backgroundColor: '#ffebee' }} variant='outlined'>
         <CardContent>
           <Typography
             sx={{
@@ -34,6 +40,7 @@ const QuizCard = (props) => {
               textAlign: 'center',
               borderRadius: 2,
               fontSize: '1.1rem',
+              backgroundColor: 'white',
             }}
             variant='h5'
             component='div'
@@ -73,8 +80,9 @@ const QuizCard = (props) => {
             disabled={!value}
             onClick={handleSubmit}
             fullWidth
-            variant='outlined'
+            variant='contained'
             size='small'
+            color='success'
           >
             Submit
           </Button>

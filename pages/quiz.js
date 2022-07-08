@@ -98,6 +98,20 @@ const Quiz = () => {
           draggable: true,
           progress: undefined,
         });
+        setTimeout(() => {
+          toast.info(`Redirecting to HOME..`, {
+            position: 'bottom-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }, 2500);
+        setTimeout(() => {
+          router.push('/');
+        }, 5000);
       });
   };
 
