@@ -160,7 +160,10 @@ const Quiz = () => {
               maxWidth='xs'
               sx={{ display: 'flex', justifyContent: 'center', marginY: 2 }}
             >
-              <Typography variant='h6'>Options selected:</Typography>
+              <Typography fontSize='1rem' variant='subtitle1'>
+                Options selected:
+              </Typography>
+
               {answers.map((element, i) => {
                 return (
                   <Typography
