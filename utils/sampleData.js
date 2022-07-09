@@ -105,3 +105,44 @@ export const questions = [
     correctAnswer: 3,
   },
 ];
+
+export const mechanicalQuestions = [
+  {
+    title: 'Which point of view leaves room for most error?',
+    image: 'q1.jpg',
+    options: [
+      {
+        description: 'A',
+      },
+      {
+        description: 'B',
+      },
+      {
+        description: 'C',
+      },
+      {
+        description: 'Not enough information provided',
+      },
+    ],
+    correctAnswer: 3,
+  },
+  {
+    title: `What color car should you avoid if you don't want it to overheat quickly on a sunny day?`,
+    image: 'q2.jpg',
+    options: [
+      {
+        description: 'A',
+      },
+      {
+        description: 'B',
+      },
+      {
+        description: 'C',
+      },
+      {
+        description: 'D',
+      },
+    ],
+    correctAnswer: 4,
+  },
+];
