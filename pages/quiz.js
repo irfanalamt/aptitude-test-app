@@ -57,6 +57,7 @@ const Quiz = () => {
       .post('/api/scorePost', {
         email: session.user.email,
         answers,
+        questionType: 'general',
       })
       .then(function (response) {
         console.log(response);
@@ -140,7 +141,7 @@ const Quiz = () => {
           }}
           variant='h4'
         >
-          TEST 1
+          General knowledge
         </Typography>
         {finishedQuiz ? (
           <Paper

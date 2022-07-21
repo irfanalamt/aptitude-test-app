@@ -1,12 +1,16 @@
 import { Box, Button, Chip, Container, Paper, Typography } from '@mui/material';
 import Image from 'next/image';
+import axios from 'axios';
 import { useContext, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { mechanicalQuestions } from '../utils/sampleData';
 import QuizCard from '../components/QuizCard';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import PublishIcon from '@mui/icons-material/Publish';
 
 const MechanicalQuiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -49,6 +53,70 @@ const MechanicalQuiz = () => {
     setAnswers([]);
   };
 
+  const submitAnswersToDB = () => {
+    axios
+      .post('/api/scorePost', {
+        email: session.user.email,
+        answers,
+        questionType: 'mr',
+      })
+      .then(function (response) {
+        console.log(response);
+        setFinalScore(response.data.marksScored);
+        toast.success(
+          `Answers submitted. SCORE=${response.data.marksScored} `,
+          {
+            position: 'bottom-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+        setTimeout(() => {
+          toast.info(`Redirecting to HOME..`, {
+            position: 'bottom-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }, 2500);
+        setTimeout(() => {
+          router.push('/');
+        }, 5000);
+      })
+      .catch(function (error) {
+        toast.error(`Already submitted!`, {
+          position: 'bottom-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTimeout(() => {
+          toast.info(`Redirecting to HOME..`, {
+            position: 'bottom-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }, 2500);
+        setTimeout(() => {
+          router.push('/');
+        }, 5000);
+      });
+  };
+
   return (
     <>
       <Chip
@@ -72,9 +140,20 @@ const MechanicalQuiz = () => {
           Mechanical Reasoning (MR)
         </Typography>
         {finishedQuiz ? (
-          <Typography color='green' variant='h6'>
-            QUIZ DONE!
-          </Typography>
+          <>
+            <Typography color='green' variant='h6'>
+              QUIZ DONE!
+            </Typography>
+            <Button
+              onClick={() => submitAnswersToDB()}
+              variant='contained'
+              sx={{ marginX: 'auto', marginTop: 2 }}
+              color='secondary'
+            >
+              Submit answers
+              <PublishIcon sx={{ marginLeft: 1 }} />
+            </Button>
+          </>
         ) : (
           <Container id='image' sx={{ paddingY: 1, marginX: 'auto' }}>
             {step === 1 && (

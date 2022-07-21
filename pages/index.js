@@ -43,10 +43,20 @@ const Index = () => {
               submit, you will be given your scores.
             </Typography>
             {!finalScore && (
-              <Button href='/quiz' sx={{ margin: 2 }} variant='contained'>
-                Start Quiz
-                <PlayCircleFilledIcon sx={{ marginLeft: 1 }} />
-              </Button>
+              <>
+                <Button href='/quiz' sx={{ margin: 2 }} variant='contained'>
+                  Start GK
+                  <PlayCircleFilledIcon sx={{ marginLeft: 1 }} />
+                </Button>
+                <Button
+                  href='/mechanicalQuiz'
+                  sx={{ margin: 2 }}
+                  variant='contained'
+                >
+                  Start MR
+                  <PlayCircleFilledIcon sx={{ marginLeft: 1 }} />
+                </Button>
+              </>
             )}
 
             {finalScore && (
