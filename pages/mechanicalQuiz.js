@@ -88,7 +88,21 @@ const MechanicalQuiz = () => {
                 }}
                 maxWidth='sm'
               >
-                <Paper sx={{ marginTop: 5 }}>
+                <Typography
+                  sx={{
+                    boxShadow: 1,
+                    maxWidth: 150,
+                    textAlign: 'center',
+                    borderRadius: 2,
+                    fontSize: '1.1rem',
+                    backgroundColor: 'white',
+                  }}
+                  variant='h5'
+                  component='div'
+                >
+                  Question {currentQuestionIndex + 1}
+                </Typography>
+                <Paper sx={{ marginTop: 2 }}>
                   <Image
                     src={`/images/MR/${currentQuestion.image}`}
                     objectPosition='center'
