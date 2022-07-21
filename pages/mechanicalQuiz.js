@@ -107,8 +107,8 @@ const MechanicalQuiz = () => {
                     src={`/images/MR/${currentQuestion.image}`}
                     objectPosition='center'
                     layout='responsive'
-                    height='300'
-                    width='500'
+                    height='400'
+                    width='600'
                   ></Image>
                 </Paper>
                 <Button
