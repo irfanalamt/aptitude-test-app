@@ -104,7 +104,7 @@ const Admin = () => {
                       variant='body1'
                       key={i}
                     >
-                      {`${el.score} `}
+                      {`${Object.values(el.score)} `}
                     </Typography>
                   </Box>
                 </Box>
