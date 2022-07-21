@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { Box, Button, Chip, Container, Paper, Typography } from '@mui/material';
@@ -11,11 +11,10 @@ import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import LabelIcon from '@mui/icons-material/Label';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { scoreContext } from '../utils/Context';
+
 import Image from 'next/image';
 
 const Quiz = () => {
-  const { setFinalScore } = useContext(scoreContext);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   const finishedQuiz = currentQuestionIndex === questions.length;
@@ -61,7 +60,6 @@ const Quiz = () => {
       })
       .then(function (response) {
         console.log(response);
-        setFinalScore(response.data.marksScored);
         toast.success(
           `Answers submitted. SCORE=${response.data.marksScored} `,
           {

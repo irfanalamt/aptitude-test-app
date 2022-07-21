@@ -22,7 +22,6 @@ async function handler(req, res) {
   await db.connect();
   const existingScore = await Score.findOne({ email: email });
   if (existingScore) {
-    res.status(422).json({ message: 'Score exists already!' });
     // const updateScore = await Score.findOneAndUpdate(
     //   { email: email },
     //   newScore,
@@ -31,6 +30,10 @@ async function handler(req, res) {
     existingScore.score.set(questionType, marksScored);
     const updateScoreSaved = await existingScore.save();
     await db.disconnect();
+    res.status(201).send({
+      message: 'Score updated!',
+      marksScored,
+    });
     return;
   }
 

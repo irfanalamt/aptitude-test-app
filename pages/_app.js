@@ -4,7 +4,6 @@ import Head from 'next/head';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import { SessionProvider } from 'next-auth/react';
-import { scoreContext } from '../utils/Context';
 
 import createEmotionCache from '../src/createEmotionCache.js';
 
@@ -26,11 +25,10 @@ export default function MyApp(props) {
       </Head>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
-      <scoreContext.Provider value={{ finalScore, setFinalScore }}>
-        <SessionProvider session={session}>
-          <Component {...pageProps} />
-        </SessionProvider>
-      </scoreContext.Provider>
+
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </CacheProvider>
   );
 }

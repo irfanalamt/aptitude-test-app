@@ -1,7 +1,7 @@
 import { Box, Button, Chip, Container, Paper, Typography } from '@mui/material';
 import Image from 'next/image';
 import axios from 'axios';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { mechanicalQuestions } from '../utils/sampleData';
@@ -62,7 +62,7 @@ const MechanicalQuiz = () => {
       })
       .then(function (response) {
         console.log(response);
-        setFinalScore(response.data.marksScored);
+
         toast.success(
           `Answers submitted. SCORE=${response.data.marksScored} `,
           {
@@ -236,6 +236,17 @@ const MechanicalQuiz = () => {
             )}
           </Container>
         )}
+        <ToastContainer
+          position='bottom-center'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </Box>
     </>
   );

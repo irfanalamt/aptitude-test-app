@@ -8,17 +8,15 @@ import {
   Paper,
   Typography,
 } from '@mui/material';
-import { useContext } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { useSession } from 'next-auth/react';
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import CreditScoreIcon from '@mui/icons-material/CreditScore';
-import { scoreContext } from '../utils/Context';
 
 const Index = () => {
   const { data: session, status } = useSession();
-  const { finalScore } = useContext(scoreContext);
+
   return (
     <>
       <Navbar />
@@ -42,43 +40,20 @@ const Index = () => {
               to restart the quiz. Answers can be submitted only once. When you
               submit, you will be given your scores.
             </Typography>
-            {!finalScore && (
-              <>
-                <Button href='/quiz' sx={{ margin: 2 }} variant='contained'>
-                  Start GK
-                  <PlayCircleFilledIcon sx={{ marginLeft: 1 }} />
-                </Button>
-                <Button
-                  href='/mechanicalQuiz'
-                  sx={{ margin: 2 }}
-                  variant='contained'
-                >
-                  Start MR
-                  <PlayCircleFilledIcon sx={{ marginLeft: 1 }} />
-                </Button>
-              </>
-            )}
-
-            {finalScore && (
-              <Paper
-                sx={{
-                  padding: 2,
-                  borderRadius: 2,
-                  maxWidth: 300,
-                  backgroundColor: '#f9fbe7',
-                  textAlign: 'center',
-                  marginX: 'auto',
-                  marginTop: 1,
-                }}
-                elevation={3}
-                square
+            <>
+              <Button href='/quiz' sx={{ margin: 2 }} variant='contained'>
+                Start GK
+                <PlayCircleFilledIcon sx={{ marginLeft: 1 }} />
+              </Button>
+              <Button
+                href='/mechanicalQuiz'
+                sx={{ margin: 2 }}
+                variant='contained'
               >
-                <Typography variant='h5'>
-                  <CreditScoreIcon sx={{ marginRight: 1, color: 'green' }} />
-                  TEST SCORE = {finalScore}/5
-                </Typography>
-              </Paper>
-            )}
+                Start MR
+                <PlayCircleFilledIcon sx={{ marginLeft: 1 }} />
+              </Button>
+            </>
           </Container>
         )}
         {!session && (
