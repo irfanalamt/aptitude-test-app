@@ -207,6 +207,7 @@ const Quiz = () => {
             question={currentQuestion}
             questionNumber={currentQuestionIndex + 1}
             submitAnswer={submitAnswer}
+            resetView={() => {}}
           />
         )}
       </Container>

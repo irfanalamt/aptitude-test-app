@@ -11,7 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import { useState } from 'react';
 
 const QuizCard = (props) => {
-  const { question = {}, questionNumber, submitAnswer } = props;
+  const { question = {}, questionNumber, submitAnswer, resetView } = props;
   const [value, setValue] = useState(null);
 
   const handleChangeRadio = (e) => {
@@ -19,6 +19,7 @@ const QuizCard = (props) => {
   };
 
   const handleSubmit = () => {
+    resetView();
     submitAnswer(value);
     setValue(null);
   };
@@ -28,6 +29,7 @@ const QuizCard = (props) => {
       sx={{
         minWidth: 275,
         marginY: 2,
+        marginX: 'auto',
         boxShadow: 2,
       }}
     >
