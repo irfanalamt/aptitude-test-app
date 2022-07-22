@@ -145,4 +145,61 @@ export const mechanicalQuestions = [
     ],
     correctAnswer: 4,
   },
+  {
+    title: `Which container is being represented in this graph as it is filled with water?`,
+    image: 'q3.jpg',
+    options: [
+      {
+        description: 'A',
+      },
+      {
+        description: 'B',
+      },
+      {
+        description: 'C',
+      },
+      {
+        description: 'D',
+      },
+    ],
+    correctAnswer: 2,
+  },
+  {
+    title: `Which ball will hit the ground first, the baseball on the left or the basketball on the right?`,
+    image: 'q4.jpg',
+    options: [
+      {
+        description: 'Basketball',
+      },
+      {
+        description: 'Baseball',
+      },
+      {
+        description: 'Both at the same time',
+      },
+      {
+        description: 'More information is needed',
+      },
+    ],
+    correctAnswer: 3,
+  },
+  {
+    title: `Which wheel will allow a toy car to roll the furthest??`,
+    image: 'q5.jpg',
+    options: [
+      {
+        description: 'Wheel 1',
+      },
+      {
+        description: 'Wheel 2',
+      },
+      {
+        description: 'Wheel 3',
+      },
+      {
+        description: 'Wheel 4',
+      },
+    ],
+    correctAnswer: 1,
+  },
 ];
