@@ -104,7 +104,9 @@ const Admin = () => {
                       variant='body1'
                       key={i}
                     >
-                      {`${Object.values(el.score)} `}
+                      {Object.entries(el.score).map((sc) => {
+                        return ` ${sc[0]}=${sc[1]} ▪️`;
+                      })}
                     </Typography>
                   </Box>
                 </Box>

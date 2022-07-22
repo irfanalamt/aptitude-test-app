@@ -60,7 +60,7 @@ const Quiz = () => {
       .post('/api/scorePost', {
         email: session.user.email,
         answers,
-        questionType: 'general',
+        questionType: 'gk',
         marksScored,
       })
       .then(function (response) {
