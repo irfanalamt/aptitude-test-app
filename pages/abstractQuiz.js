@@ -12,7 +12,7 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import PublishIcon from '@mui/icons-material/Publish';
 
-const MechanicalQuiz = () => {
+const AbstractQuiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [step, setStep] = useState(1);
@@ -123,7 +123,7 @@ const MechanicalQuiz = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: '#fffde7', height: '100vh', width: '100vw' }}>
+    <>
       <Chip
         sx={{ margin: 2, fontSize: '1rem' }}
         label={`${session.user.name} 🟢`}
@@ -145,14 +145,8 @@ const MechanicalQuiz = () => {
           Mechanical Reasoning (MR)
         </Typography>
         {finishedQuiz ? (
-          <Container
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-            }}
-          >
-            <Typography sx={{ marginX: 'auto' }} color='green' variant='h6'>
+          <>
+            <Typography color='green' variant='h6'>
               QUIZ DONE!
             </Typography>
             <Button
@@ -164,7 +158,7 @@ const MechanicalQuiz = () => {
               Submit answers
               <PublishIcon sx={{ marginLeft: 1 }} />
             </Button>
-          </Container>
+          </>
         ) : (
           <Container id='image' sx={{ paddingY: 1, marginX: 'auto' }}>
             {step === 1 && (
@@ -191,26 +185,16 @@ const MechanicalQuiz = () => {
                 >
                   Question {currentQuestionIndex + 1}
                 </Typography>
-                <Paper sx={{ marginTop: 2, maxWidth: 'xs' }}>
+                <Paper sx={{ marginTop: 2 }}>
                   <Image
                     src={`/images/MR/${currentQuestion.image}`}
                     objectPosition='center'
                     layout='responsive'
-                    height='300'
+                    height='400'
                     width='600'
                   ></Image>
                 </Paper>
-                <Typography
-                  sx={{
-                    marginTop: 1,
-                    boxShadow: 1,
-                    backgroundColor: 'white',
-                    borderRadius: 3,
-                    paddingX: 1,
-                  }}
-                  variant='h6'
-                  component='div'
-                >
+                <Typography sx={{ marginTop: 1 }} variant='h5' component='div'>
                   {currentQuestion.title}
                 </Typography>
                 <Button
@@ -227,9 +211,11 @@ const MechanicalQuiz = () => {
               <Box
                 id='quiz'
                 sx={{
+                  height: '80vh',
                   marginX: 'auto',
                   justifyContent: 'center',
                   alignItems: 'start',
+                  marginBottom: 5,
                   display: 'flex',
                   flexDirection: 'column',
                 }}
@@ -269,8 +255,8 @@ const MechanicalQuiz = () => {
           pauseOnHover
         />
       </Box>
-    </Box>
+    </>
   );
 };
 
-export default MechanicalQuiz;
+export default AbstractQuiz;
