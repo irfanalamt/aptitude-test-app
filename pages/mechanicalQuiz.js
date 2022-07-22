@@ -164,13 +164,12 @@ const MechanicalQuiz = () => {
             {step === 1 && (
               <Box
                 sx={{
-                  height: '100vh',
                   marginBottom: 1,
                   justifyContent: 'center',
                   marginX: 'auto',
                   textAlign: 'center',
                 }}
-                maxWidth='sm'
+                maxWidth='xs'
               >
                 <Typography
                   sx={{
@@ -195,6 +194,9 @@ const MechanicalQuiz = () => {
                     width='600'
                   ></Image>
                 </Paper>
+                <Typography sx={{ marginTop: 1 }} variant='h5' component='div'>
+                  {currentQuestion.title}
+                </Typography>
                 <Button
                   color='info'
                   sx={{ marginX: 'auto', marginTop: 2 }}
