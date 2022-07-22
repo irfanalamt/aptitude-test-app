@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { mechanicalQuestions } from '../utils/sampleData';
+import { abstractQuestions } from '../utils/sampleData';
 import QuizCard from '../components/QuizCard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,8 +16,8 @@ const AbstractQuiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [step, setStep] = useState(1);
-  const finishedQuiz = currentQuestionIndex === mechanicalQuestions.length;
-  const currentQuestion = mechanicalQuestions[currentQuestionIndex];
+  const finishedQuiz = currentQuestionIndex === abstractQuestions.length;
+  const currentQuestion = abstractQuestions[currentQuestionIndex];
 
   const router = useRouter();
   const { data: session, status } = useSession({
@@ -54,7 +54,7 @@ const AbstractQuiz = () => {
   };
 
   const submitAnswersToDB = () => {
-    let marksScored = mechanicalQuestions.filter((q, i) => {
+    let marksScored = abstractQuestions.filter((q, i) => {
       return q.correctAnswer === parseInt(answers[i]);
     }).length;
 
@@ -62,7 +62,7 @@ const AbstractQuiz = () => {
       .post('/api/scorePost', {
         email: session.user.email,
         answers,
-        questionType: 'mr',
+        questionType: 'ar',
         marksScored,
       })
       .then(function (response) {
@@ -142,11 +142,17 @@ const AbstractQuiz = () => {
           }}
           variant='h5'
         >
-          Mechanical Reasoning (MR)
+          Abstract Reasoning (AR)
         </Typography>
         {finishedQuiz ? (
-          <>
-            <Typography color='green' variant='h6'>
+          <Container
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <Typography sx={{ marginX: 'auto' }} color='green' variant='h5'>
               QUIZ DONE!
             </Typography>
             <Button
@@ -158,7 +164,7 @@ const AbstractQuiz = () => {
               Submit answers
               <PublishIcon sx={{ marginLeft: 1 }} />
             </Button>
-          </>
+          </Container>
         ) : (
           <Container id='image' sx={{ paddingY: 1, marginX: 'auto' }}>
             {step === 1 && (
@@ -187,7 +193,7 @@ const AbstractQuiz = () => {
                 </Typography>
                 <Paper sx={{ marginTop: 2 }}>
                   <Image
-                    src={`/images/MR/${currentQuestion.image}`}
+                    src={`/images/AR/${currentQuestion.image}`}
                     objectPosition='center'
                     layout='responsive'
                     height='400'

@@ -129,7 +129,10 @@ const MechanicalQuiz = () => {
         label={`${session.user.name} 🟢`}
       />
 
-      <Box sx={{ marginTop: 1, marginX: 'auto' }} maxWidth='sm'>
+      <Box
+        sx={{ height: '100vh', marginTop: 1, marginX: 'auto', paddingY: 2 }}
+        maxWidth='sm'
+      >
         <Typography
           sx={{
             textAlign: 'center',
@@ -152,7 +155,7 @@ const MechanicalQuiz = () => {
               justifyContent: 'center',
             }}
           >
-            <Typography sx={{ marginX: 'auto' }} color='green' variant='h6'>
+            <Typography sx={{ marginX: 'auto' }} color='green' variant='h5'>
               QUIZ DONE!
             </Typography>
             <Button

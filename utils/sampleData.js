@@ -184,7 +184,7 @@ export const mechanicalQuestions = [
     correctAnswer: 3,
   },
   {
-    title: `Which wheel will allow a toy car to roll the furthest??`,
+    title: `Which wheel will allow a toy car to roll the furthest?`,
     image: 'q5.jpg',
     options: [
       {
@@ -201,5 +201,106 @@ export const mechanicalQuestions = [
       },
     ],
     correctAnswer: 1,
+  },
+];
+
+export const abstractQuestions = [
+  {
+    title: `Which of the following best matches the relationship between the shapes in the image?`,
+    image: 'q1.jpg',
+    options: [
+      {
+        description: 'A',
+      },
+      {
+        description: 'B',
+      },
+      {
+        description: 'C',
+      },
+      {
+        description: 'D',
+      },
+    ],
+    correctAnswer: 4,
+  },
+  {
+    title: `Which domino comes next in the sequence?`,
+    image: 'q2.jpg',
+    options: [
+      {
+        description: 'A',
+      },
+      {
+        description: 'B',
+      },
+      {
+        description: 'C',
+      },
+      {
+        description: 'D',
+      },
+    ],
+    correctAnswer: 1,
+  },
+  {
+    title: `Which pattern comes next in the sequence?`,
+    image: 'q3.jpg',
+    options: [
+      {
+        description: 'A',
+      },
+      {
+        description: 'B',
+      },
+      {
+        description: 'C',
+      },
+      {
+        description: 'D',
+      },
+      {
+        description: 'E',
+      },
+    ],
+    correctAnswer: 4,
+  },
+  {
+    title: ` Of the options provided, which block completes the following series?`,
+    image: 'q4.jpg',
+    options: [
+      {
+        description: 'A',
+      },
+      {
+        description: 'B',
+      },
+      {
+        description: 'C',
+      },
+      {
+        description: 'D',
+      },
+    ],
+    correctAnswer: 4,
+  },
+  {
+    title: `Which answer figure comes next in the sequence?`,
+    image: 'q5.jpg',
+    options: [
+      {
+        description: 'A',
+      },
+      {
+        description: 'B',
+      },
+      {
+        description: 'C',
+      },
+      {
+        description: 'D',
+      },
+    ],
+    correctAnswer: 4,
   },
 ];

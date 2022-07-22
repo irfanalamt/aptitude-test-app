@@ -53,6 +53,14 @@ const Index = () => {
                 Start MR
                 <PlayCircleFilledIcon sx={{ marginLeft: 1 }} />
               </Button>
+              <Button
+                href='/abstractQuiz'
+                sx={{ margin: 2 }}
+                variant='contained'
+              >
+                Start AR
+                <PlayCircleFilledIcon sx={{ marginLeft: 1 }} />
+              </Button>
             </>
           </Container>
         )}
