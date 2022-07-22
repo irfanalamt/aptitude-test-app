@@ -52,11 +52,16 @@ const Quiz = () => {
   };
 
   const submitAnswersToDB = () => {
+    const marksScored = questions.filter((q, i) => {
+      return q.correctAnswer === parseInt(answers[i]);
+    }).length;
+
     axios
       .post('/api/scorePost', {
         email: session.user.email,
         answers,
         questionType: 'general',
+        marksScored,
       })
       .then(function (response) {
         console.log(response);

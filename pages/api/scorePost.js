@@ -7,26 +7,10 @@ async function handler(req, res) {
     return;
   }
 
-  const { email, answers, questionType } = req.body;
-  const marksScored = questions.filter((q, i) => {
-    return q.correctAnswer === parseInt(answers[i]);
-  }).length;
+  const { email, answers, questionType, marksScored } = req.body;
 
-  const newScore = new Score({
-    email,
-    answers,
-    score: {},
-  });
-  newScore.score.set(questionType, marksScored);
-
-  await db.connect();
   const existingScore = await Score.findOne({ email: email });
   if (existingScore) {
-    // const updateScore = await Score.findOneAndUpdate(
-    //   { email: email },
-    //   newScore,
-    //   { new: true }
-    // );
     existingScore.score.set(questionType, marksScored);
     const updateScoreSaved = await existingScore.save();
     await db.disconnect();
@@ -36,6 +20,13 @@ async function handler(req, res) {
     });
     return;
   }
+
+  const newScore = new Score({
+    email,
+    answers,
+    score: {},
+  });
+  newScore.score.set(questionType, marksScored);
 
   const scoreSaved = await newScore.save();
 

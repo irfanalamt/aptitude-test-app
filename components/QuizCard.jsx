@@ -20,6 +20,7 @@ const QuizCard = (props) => {
 
   const handleSubmit = () => {
     resetView();
+    console.log(value);
     submitAnswer(value);
     setValue(null);
   };

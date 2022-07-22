@@ -54,11 +54,16 @@ const MechanicalQuiz = () => {
   };
 
   const submitAnswersToDB = () => {
+    let marksScored = mechanicalQuestions.filter((q, i) => {
+      return q.correctAnswer === parseInt(answers[i]);
+    }).length;
+
     axios
       .post('/api/scorePost', {
         email: session.user.email,
         answers,
         questionType: 'mr',
+        marksScored,
       })
       .then(function (response) {
         console.log(response);
