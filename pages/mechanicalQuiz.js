@@ -123,7 +123,7 @@ const MechanicalQuiz = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: '#fffde7', height: '100vh', width: '100vw' }}>
+    <>
       <Chip
         sx={{ margin: 2, fontSize: '1rem' }}
         label={`${session.user.name} 🟢`}
@@ -191,12 +191,12 @@ const MechanicalQuiz = () => {
                 >
                   Question {currentQuestionIndex + 1}
                 </Typography>
-                <Paper sx={{ marginTop: 2, maxWidth: 'xs' }}>
+                <Paper sx={{ marginTop: 2, maxWidth: 'xs', minHeight: '400' }}>
                   <Image
                     src={`/images/MR/${currentQuestion.image}`}
                     objectPosition='center'
                     layout='responsive'
-                    height='300'
+                    height='400'
                     width='600'
                   ></Image>
                 </Paper>
@@ -269,7 +269,7 @@ const MechanicalQuiz = () => {
           pauseOnHover
         />
       </Box>
-    </Box>
+    </>
   );
 };
 
